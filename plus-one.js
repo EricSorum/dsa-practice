@@ -4,6 +4,20 @@ You are given a large integer represented as an integer array digits, where each
 */
 
 var plusOne = function(digits) {
+  if (digits[digits.length] != 9) {
+    digits[digits.length] += 1;
+    return digits;
+  } else {
+    let int = "";
+    for (let i = 0; i < digits.length; i++) {
+      digits[i] = digits[i].toString();
+    }
+    int = int.join("");
+    return Number(int);
+  }
+};
+
+var plusOne2 = function(digits) {
 
   // should probably just convert it to number
   let int = digits.toString().filter(",");
