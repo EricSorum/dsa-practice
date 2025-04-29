@@ -10,4 +10,5 @@ var chunk = function(arr, size) {
       newArr.push(arr.slice(i, size));
     }
   }
+  return newArr;
 };
