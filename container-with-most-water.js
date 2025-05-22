@@ -14,7 +14,8 @@ var maxArea = function(height) {
   let end = height.length;
 
   while (start < height.length) {
-    const volume = height[start] * (end-start);
+    const shortestHeight = height[start] < height[end] ? end : start;
+    const volume = shortestHeight * (end-start);
     if (volume > max) {
       max = volume;
       start++;
