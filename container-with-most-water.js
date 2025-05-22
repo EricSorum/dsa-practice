@@ -14,10 +14,13 @@ var maxArea = function(height) {
   let end = height.length;
 
   while (start < height.length) {
-    const shortestHeight = height[start] < height[end] ? end : start;
-    const volume = shortestHeight * (end-start);
+    // Find which number is smaller - that will be the height of the volume.
+    const volumeHeight = height[start] < height[end] ? end : start;
+    // Multiply the height by the width of the volume, which is the number of spaces between end and start.
+    const volume = volumeHeight * (end-start);
     if (volume > max) {
       max = volume;
+      end = height.length;
       start++;
     } else {
       end--;
