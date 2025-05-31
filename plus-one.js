@@ -4,32 +4,12 @@ You are given a large integer represented as an integer array digits, where each
 */
 
 var plusOne = function(digits) {
-  if (digits[digits.length] != 9) {
-    digits[digits.length] += 1;
-    return digits;
-  } else {
-    let int = "";
-    for (let i = 0; i < digits.length; i++) {
-      digits[i] = digits[i].toString();
-    }
-    int = int.join("");
-    return Number(int);
-  }
+  int = Number(digits.join().replaceAll(",", ""));
+  int++
+  // console.log(int.toString());
+  console.log(Array.from(int.toString()));
+  return Array.from(int.toString());
 };
 
-var plusOne2 = function(digits) {
-
-  // should probably just convert it to number
-  let int = digits.toString().filter(",");
-  let int2 = Number(int);
-
-  return int.split("");
-
-  // conditional if last digit is 9? or always do it this way anyway?
-  if (digits[digits.length] == 9) {
-
-  } else {
-    digits[digits.length]++;
-    return digits;
-  }
-};
+let i = ["1", "5", "9"];
+console.log("Answer: " + plusOne(i));
