@@ -13,22 +13,46 @@ Given n, calculate F(n).
  */
 var fib = function(n) {
   if (n < 2) { return n }
-  // if (n === 0) { 
-  //   return 0
-  // } else if (n === 1 || n === 2){
-  //   return 1
-  // }
-
   let res = 1;
   let thisF = 1;
   let previousF = 1;
-  // let fibArr = [0,1,1];
   for (let i = 2; i < n; i++) {
     res = previousF + thisF;
     previousF = thisF;
     thisF = res;
-    // fibArr.push(res);
   }
-  // console.log(fibArr);
   return res;
 };
+
+
+/* Solution from Leetcode contributor:
+
+var fib = function(n) {
+    if (n === 0) return 0;
+    if (n === 1) return 1;
+    let a = 0, b = 1;
+    for (let i = 2; i <= n; i++) {
+        [a, b] = [b, a + b];
+    }
+    return b;
+};
+
+My first two edge cases were handled in one line.
+But his variable assignments were handled more tersely.
+
+ChatGPT:
+
+var fib = function(n) {
+    let a = 0;
+    let b = 1;
+
+    for (let i = 0; i < n; i++) {
+        [a, b] = [b, a + b];
+    }
+
+    return a;
+};
+
+Much cleaner than either of us.
+
+*/
