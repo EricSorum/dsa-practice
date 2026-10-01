@@ -12,25 +12,23 @@ Given n, calculate F(n).
  * @return {number}
  */
 var fib = function(n) {
-  if (n === 1) { 
-    return 0
-  } else if (n === 2 || n === 3){
-    return 1
-  }
+  if (n < 2) { return n }
+  // if (n === 0) { 
+  //   return 0
+  // } else if (n === 1 || n === 2){
+  //   return 1
+  // }
 
-  let res = 2;
-  let thisF = 2;
+  let res = 1;
+  let thisF = 1;
   let previousF = 1;
-  let fibArr = [0,1,1,2];
-  // n is the stage in the sequence we want
-  // we go up the F sequence until we get to n
-  // each time, we add the last two previous numbers
-  for (let i = 4; i < n; i++) {
+  // let fibArr = [0,1,1];
+  for (let i = 2; i < n; i++) {
     res = previousF + thisF;
     previousF = thisF;
     thisF = res;
-    fibArr.push(res);
+    // fibArr.push(res);
   }
-  console.log(fibArr);
+  // console.log(fibArr);
   return res;
 };
